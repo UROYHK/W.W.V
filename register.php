@@ -16,8 +16,8 @@ if (isset($_POST['signUp'])) {
     if ($stmt->rowCount() > 0) {
         echo "Email Address Already Exists!";
     } else {
-        $insertQuery = INSERT INTO php_login_db (firstName, lastName, email, password)
-VALUES ('Read', 'Write', 'readwrite53@gmail.com', md5('admin123'));
+        $insertQuery = "INSERT INTO php_login_db (firstName, lastName, email, password)
+                VALUES ('Read', 'Write', 'readwrite53@gmail.com', md5('admin123'))";
 
         $stmt = $conn->prepare($insertQuery);
         $stmt->bindParam(':firstName', $firstName);
