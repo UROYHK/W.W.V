@@ -18,7 +18,9 @@ if(isset($_POST['signUp'])){
         $insertQuery="INSERT INTO users (firstName, lastName, email, password)
 VALUES ('Read', 'Write', 'readwrite53@gmail.com', md5('admin123'));
             if($conn->query($insertQuery)==TRUE){
-                header("location: index.php");
+            echo "User added";
+header("location: index.php");
+
             }
             else{
                 echo "Error:".$conn->error;
