@@ -9,13 +9,13 @@ if(isset($_POST['signUp'])){
     $password=$_POST['password'];
     $password=md5($password);
 
-     $checkEmail="SELECT * From users where email='$email'";
+     $checkEmail="SELECT * From php-login-db where email='$email'";
      $result=$conn->query($checkEmail);
      if($result->num_rows>0){
         echo "Email Address Already Exists !";
      }
      else{
-        $insertQuery="INSERT INTO users (firstName, lastName, email, password)
+        $insertQuery="INSERT INTO php-login-db (firstName, lastName, email, password)
 VALUES ('Read', 'Write', 'readwrite53@gmail.com', md5('admin123'));
             if($conn->query($insertQuery)==TRUE){
 header("location: index.php");
@@ -34,7 +34,7 @@ if(isset($_POST['signIn'])){
    $password=$_POST['password'];
    $password=md5($password) ;
    
-   $sql="SELECT * FROM users WHERE email='$email' and password='$password'";
+   $sql="SELECT * FROM php-login-db WHERE email='$email' and password='$password'";
    $result=$conn->query($sql);
    if($result->num_rows>0){
     session_start();
